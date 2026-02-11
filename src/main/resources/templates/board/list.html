@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/board/write">글쓰기</a>
+<table>
+    <tr th:each="b : ${boards}">
+        <td th:text="${b.id}"></td>
+        <td th:text="${b.title}"></td>
+        <td th:text="${b.writer}"></td>
+
+        <!-- 수정 버튼 -->
+        <td>
+            <a th:href="@{/board/edit/{id}(id=${b.id})}">
+                수정
+            </a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
